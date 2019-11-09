@@ -6,9 +6,9 @@ const app = new Vue({
         tareas: [],
         nuevaTarea: ''
     },
-    method:{
-        agregarTarea: function(){
-            this.tarea.push({
+    methods:{
+        agregarTarea(){
+            this.tareas.push({
                 nombre: this.nuevaTarea,
                 estado: false
             });
@@ -17,11 +17,11 @@ const app = new Vue({
         },
         editarTarea: function(index){
             this.tareas[index].estado = true;
-            localStorage.setItem('do-list'.JSON.stringify(this.tareas));
+            localStorage.setItem('do-list', JSON.stringify(this.tareas));
         },
         eliminar(index){
             this.tareas.splice(index, 1);
-            localStorage.setItem('do-list'.JSON.stringify(this.tareas));
+            localStorage.setItem('do-list', JSON.stringify(this.tareas));
         }
     },
     created: function(){

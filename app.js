@@ -17,6 +17,8 @@ const app = new Vue({
         },
         editarTarea: function(index){
             this.tareas[index].estado = true;
+            this.tareas.push(this.tareas[index]);
+            this.tareas.splice(index, 1);
             localStorage.setItem('do-list', JSON.stringify(this.tareas));
         },
         eliminar(index){
